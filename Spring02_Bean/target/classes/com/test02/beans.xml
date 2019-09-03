@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hong" class="com.test02.Address"></bean>
+	
+	<bean id="lee" class="com.test02.Address">
+		<constructor-arg index="0" value="이선달"></constructor-arg>
+		<constructor-arg index="1" value="평양"></constructor-arg>
+		<constructor-arg index="2" value="016021567"></constructor-arg>
+	</bean>
+	
+	<bean id="kim" class="com.test02.Address">
+		<constructor-arg name="name" value="김나까무라"></constructor-arg>
+		<constructor-arg name="addr" value="도쿄"></constructor-arg>
+		<constructor-arg name="tel" value="0175498874"></constructor-arg>
+	</bean>
+	
+	<bean id="hongjob" class="com.test02.JobAddress"></bean>
+	
+	<bean id="leejob" class="com.test02.JobAddress">
+		<constructor-arg name="addr" ref="lee"/>
+		<constructor-arg name="jobName" value="갓수"></constructor-arg>
+	</bean>
+	
+	<bean id="kimjob" class="com.test02.JobAddress">
+		<constructor-arg name="addr" ref="kim"/>
+		<constructor-arg name="jobName" value="금수저"></constructor-arg>
+	</bean>
+</beans>
