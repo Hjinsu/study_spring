@@ -24,3 +24,11 @@
 
 </body>
 </html>
+<!--
+form tag의 enctype 속성
+1.application/www-form-urlencoded : (default) 모든 문자들을 encoding
+2.multipart/form-data : file upload를 가능(post)
+3.text/plain : encoding 하지 않는다.
+
+form:error = Errors, BindingResult를 이용해서 command객체의 특정 field에서 발생하는 에러 메시지 출력
+ -->

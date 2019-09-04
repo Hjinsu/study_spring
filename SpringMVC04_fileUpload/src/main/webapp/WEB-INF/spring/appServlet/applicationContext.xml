@@ -10,5 +10,4 @@
 		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
 	
-	
 </beans>

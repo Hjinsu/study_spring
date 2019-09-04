@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 
@@ -60,8 +61,12 @@ public class HomeController {
 		
 		try {
 			inputStream = file.getInputStream();
-			String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage");
-		
+			String path = "./src/main/webapp/mystorage";/*
+														 * WebUtils.getRealPath(request.getSession().getServletContext()
+														 * , "/storage");
+														 */
+			// 절대경로 : c:\
+			// 상대경로 : / - 최상위, ./ - 현재, ../ 이전  
 			System.out.println("업로드 될 실제 경로 : " + path);
 			
 			File storage = new File(path);
@@ -79,7 +84,6 @@ public class HomeController {
 			
 			int read = 0;
 			byte[] b = new byte[(int)file.getSize()];
-			
 			while((read=inputStream.read(b)) != -1) {
 				outputStream.write(b, 0, read);
 			}
@@ -113,6 +117,7 @@ public class HomeController {
 		response.setHeader("Content-Disposition", "attachment;filename=\"" + fn + "\"");
 		response.setContentLength(bytes.length);
 		response.setContentType("image/jpeg");
+		//
 		
 		return bytes;
 	}
